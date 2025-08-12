@@ -17,37 +17,77 @@ Using this plugin requires [Cordova iOS](https://github.com/apache/cordova-ios) 
 
 ### Usage
 
-After the device is ready, you can create a local alias for the `VolumeControl` class:
-
+Usage
+JavaScript (Global Cordova)
+After the device is ready, you can use the plugin via the global `cordova.plugins.VolumeControl` object:
 
 ```javascript
-## Javascript interface
-    var VolumeControl = cordova.plugins.VolumeControl;
+var VolumeControl = cordova.plugins.VolumeControl;
 
-    VolumeControl.getVolume(console.log.bind(console));
-    VolumeControl.toggleMute();
-    VolumeControl.isMuted(console.log.bind(console));
-    VolumeControl.setVolume(1.0); //Float between 0.0 and 1.0
-    VolumeControl.subscribeToVolumeChanges(console.log.bind(console));
+// Get current volume
+VolumeControl.getVolume(console.log.bind(console));
+
+// Toggle mute
+VolumeControl.toggleMute();
+
+// Check if muted
+VolumeControl.isMuted(console.log.bind(console));
+
+// Set volume
+VolumeControl.setVolume(1.0); //Float between 0.0 and 1.0
+
+// Subscribe to volume changes
+VolumeControl.subscribeToVolumeChanges(console.log.bind(console));
 ```
 
-* Check [source](https://github.com/okanbeydanol/cordova-plugin-volume-manager/tree/master/www/VolumeControl.js) for additional configuration.
+* Check the [JavaScript source](https://github.com/okanbeydanol/cordova-plugin-volume-manager/tree/master/www/VolumeControl.js) for additional configuration.
+
+
+TypeScript / ES Module / Ionic
+You can also use ES module imports (with TypeScript support):
+
+```typescript
+import { VolumeControl } from 'cordova-plugin-volume-manager';
+
+// Get current volume
+VolumeControl.getVolume((volume) => {
+  console.log('Current volume:', volume);
+});
+
+// Set volume
+VolumeControl.setVolume(0.5);
+
+// Toggle mute
+VolumeControl.toggleMute();
+
+// Check if muted
+VolumeControl.isMuted((muted) => {
+  console.log('Muted:', muted);
+});
+
+// Subscribe to volume changes
+VolumeControl.subscribeToVolumeChanges((volume) => {
+  console.log('Volume changed:', volume);
+});
+```
+TypeScript Types
+Type definitions are included. You get full autocompletion and type safety in TypeScript/Ionic projects.
+
+
+* Check the [Typescript definitions](https://github.com/okanbeydanol/cordova-plugin-volume-manager/tree/master/www/VolumeControl.d.ts) for additional configuration.
 
 
 ## Communication
 
 - If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/cordova). (Tag `cordova`)
-- If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/cordova).
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
+- If you **found a bug** or **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
+
 
 
 ## Contributing
 
-Patches welcome! Send a pull request. Since this is not a part of Cordova Core (which requires a CLA), this should be easier.
-
-Please submit all pull requests the against master branch. If your pull request contains JavaScript patches or features, you should include relevant unit tests. Thanks!
+Patches welcome! Please submit all pull requests against the master branch. If your pull request contains JavaScript patches or features, include relevant unit tests. Thanks!
 
 ## Copyright and license
 
