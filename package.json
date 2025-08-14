@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-volume-manager",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Cordova Volume Manager Plugin",
   "cordova": {
     "id": "cordova-plugin-volume-manager",

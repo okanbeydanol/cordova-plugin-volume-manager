@@ -1,4 +1,4 @@
-package com.lorentech.plugins.volumeControl;
+package com.okanbeydanol.volumeControl;
 
 import android.content.Context;
 import android.database.ContentObserver;
